@@ -1,0 +1,22 @@
+{
+  "name": "ws-client",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 3000",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "ts-standard": "^12.0.2",
+    "typescript": "^4.9.3",
+    "vite": "^4.2.0"
+  },
+  "ts-standard": {
+    "project": "./tsconfig.json",
+    "ignore": [
+      "dist"
+    ]
+  }
+}
