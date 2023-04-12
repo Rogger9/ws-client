@@ -1,7 +1,7 @@
 import './style.css'
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <h1>Websocket - Client</h1>
-  </div>
-`
+// document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
+//   <div>
+//     <h1>Websocket - Client</h1>
+//   </div>
+// `
