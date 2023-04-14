@@ -21,5 +21,8 @@
     "ignore": [
       "dist"
     ]
+  },
+  "dependencies": {
+    "socket.io-client": "^4.6.1"
   }
 }
