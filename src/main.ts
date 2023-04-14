@@ -1,3 +1,4 @@
+import { connect } from './socket'
 import './style.css'
 
 // document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
@@ -5,3 +6,5 @@ import './style.css'
 //     <h1>Websocket - Client</h1>
 //   </div>
 // `
+
+connect()
