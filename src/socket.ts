@@ -11,6 +11,7 @@ export const connect = () => {
 
 const addListeners = (socket: Socket) => {
   const connectionStatus = document.querySelector('#connection-status')!
+  const clientsUl = document.querySelector('#clients-ul')!
 
   socket.on('connect', () => {
     connectionStatus.innerHTML = 'Online'
@@ -18,5 +19,11 @@ const addListeners = (socket: Socket) => {
 
   socket.on('disconnect', () => {
     connectionStatus.innerHTML = 'Offline'
+  })
+
+  socket.on('clients-updated', (clients: string[]) => {
+    let clientsHtml = ''
+    clients.forEach(id => (clientsHtml += `<li>${id}</li>`))
+    clientsUl.innerHTML = clientsHtml
   })
 }
