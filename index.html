@@ -5,21 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Websocket</title>
   </head>
-  <body class="h-screen bg-slate-900 text-gray-200 p-4">
-    <main>
+  <body class="grid grid-rows-[auto_1fr] h-screen bg-slate-900 text-gray-200 p-4 lg:mx-40">
+    <header>
       <h1 class="text-2xl text-center font-semibold">Websocket - Client</h1>
       <span id="connection-status" class="block text-center py-2">Offline</span>
-      <div class="p-8">
-        <h2 class="text-xl font-semibold px-2 py-4">List of connected</h2>
-        <ul id="clients-ul" class="grid gap-2"></ul>
-      </div>
-      <form id="message-form">
-        <input type="text" placeholder="message" id="message-input" />
-      </form>
-
-      <div>
-        <h2 class="text-xl font-semibold px-2 py-4">Messages</h2>
-        <ul id="messages-ul"></ul>
+    </header>
+    <main class="lg:mx-auto">
+      <div
+        class="grid grid-rows-[auto_1fr] lg:grid-rows-none lg:grid-cols-[350px_minmax(auto,_900px)] h-full rounded overflow-hidden"
+      >
+        <div class="p-8 bg-slate-800">
+          <h2 class="text-xl font-semibold">List of users</h2>
+          <ul id="clients-ul" class="grid gap-2"></ul>
+        </div>
+        <div class="bg-slate-700 flex flex-col p-4 gap-4">
+          <ul id="messages-ul" class="h-full"></ul>
+          <form id="message-form" class="flex gap-4" autocomplete="off">
+            <input
+              type="text"
+              placeholder="message..."
+              id="message-input"
+              class="w-full p-2 text-black outline-none rounded"
+            />
+            <button class="bg-slate-800 px-4 rounded active:scale-95 hover:brightness-125">
+              <svg width="24px" height="24px" viewBox="0 0 24 24">
+                <path
+                  d="M20 4L3 11L10 14M20 4L13 21L10 14M20 4L10 14"
+                  stroke="#FFF"
+                  stroke-width="1.4"
+                />
+              </svg>
+            </button>
+          </form>
+        </div>
       </div>
     </main>
     <script type="module" src="/src/main.ts"></script>
