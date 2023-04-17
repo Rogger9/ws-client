@@ -1,5 +1,6 @@
 import { Manager, Socket } from 'socket.io-client'
-import { addMessage, updateClientsList, updateConnectionStatus } from './main'
+import { updateClientsList, updateConnectionStatus } from './main'
+import { addMessage } from './message'
 import { SOCKET_URL } from './utils/constants'
 import { ConnectionStatus, Events } from './utils/enums'
 
