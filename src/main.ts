@@ -1,5 +1,4 @@
-import { handleOnSubmit } from './form'
-import { connect } from './socket'
+import { handleOnSendJwt } from './jwt'
 import { ConnectionStatus } from './utils/enums'
 
 const connectionStatus = document.querySelector('#connection-status')!
@@ -14,6 +13,4 @@ export const updateClientsList = (clients: string[]) => {
   clientsUl.innerHTML = clientsHtml
 }
 
-const socket = connect()
-
-handleOnSubmit(socket)
+handleOnSendJwt()

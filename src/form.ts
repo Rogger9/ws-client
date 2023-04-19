@@ -10,7 +10,7 @@ export const handleOnSubmit = (socket: Socket) => {
     const message = messageInput.value.trim()
     if (!socket.connected || !message) return console.error('Error')
 
-    emitMessage(socket, { id: 'Yo', message })
+    emitMessage({ id: 'Yo', message })
     messageInput.value = ''
   }
 

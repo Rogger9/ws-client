@@ -4,19 +4,21 @@ import { addMessage } from './message'
 import { SOCKET_URL } from './utils/constants'
 import { ConnectionStatus, Events } from './utils/enums'
 
-export const connect = () => {
-  const manager = new Manager(SOCKET_URL)
-  const socket = manager.socket('/')
-  addListeners(socket)
+let socket: Socket
+
+export const connect = (token: string) => {
+  const manager = new Manager(SOCKET_URL, { extraHeaders: { authentication: token } })
+  socket?.removeAllListeners()
+  socket = manager.socket('/')
+  addListeners()
   return socket
 }
 
-const addListeners = (socket: Socket) => {
+const addListeners = () => {
   socket.on(Events.CONNECT, () => updateConnectionStatus(ConnectionStatus.ONLINE))
   socket.on(Events.DISCONNECT, () => updateConnectionStatus(ConnectionStatus.OFFLINE))
   socket.on(Events.CLIENTS_UPDATED, updateClientsList)
   socket.on(Events.MESSAGE_SERVER, addMessage)
 }
 
-export const emitMessage = (socket: Socket, data: unknown) =>
-  socket.emit(Events.MESSAGE_CLIENT, data)
+export const emitMessage = (data: unknown) => socket.emit(Events.MESSAGE_CLIENT, data)
